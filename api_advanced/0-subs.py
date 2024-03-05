@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 import requests
-def get_emp_todo(emp_id):
-    URL = f"https//jsonplaceholder.typicode.com/users/{emp_id}/todos"
-    emp_todo = requests.get(URL).json{}
-    total_todos=len(emp_todo)
-    completed_todos = 0
-    for todo in emp todo:
-        if todo("completed"):
-            completed_todos += 1
-    print(f"Out of {total_todos} total, completed todos are: {completed_todos})
+def number_of_subscribers(subreddit):
+    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    headers = {'User-Agent': 'MyBot/1.0'}
+    response = requests.get(url, headers=headers, allow_redirects=False)
+    if response.status_code != 200:
+    return 0
+data = response.json()
+subscribers = data['data']['subscribers']
+return subscribers
